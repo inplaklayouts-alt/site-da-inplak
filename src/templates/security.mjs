@@ -22,7 +22,7 @@ export function csp({ forMeta = false } = {}) {
     "img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://*.google.com https://*.gstatic.com",
     `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com ${appsScript}${formOrigin ? ' ' + formOrigin : ''}`,
     'frame-src https://www.google.com https://maps.google.com',
-    `form-action 'self' https://wa.me https://api.whatsapp.com ${appsScript}${formOrigin ? ' ' + formOrigin : ''}`,
+    `form-action 'self' mailto: https://wa.me https://api.whatsapp.com ${appsScript}${formOrigin ? ' ' + formOrigin : ''}`,
     "base-uri 'self'",
     "object-src 'none'",
   ];

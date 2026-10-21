@@ -306,6 +306,7 @@ export function layout(page, content) {
     base: site.basePath,
     form: { provider: site.form.provider, endpoint: site.form.endpoint },
     whatsapp: site.whatsapp.number,
+    email: site.email,
   });
   return `<!doctype html>
 <html lang="${site.lang}" class="no-js">

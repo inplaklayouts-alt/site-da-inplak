@@ -287,8 +287,8 @@ export function privacyPage() {
       retentionExtra: '',
     },
     whatsapp: {
-      technical: `${hosting} mantém registros técnicos de acesso às páginas. O formulário não envia seus dados a nenhum servidor: ele apenas monta a mensagem e abre o WhatsApp, onde você decide enviá-la.`,
-      sharing: `${hosting} e a plataforma WhatsApp (Meta), por onde o pedido é enviado`,
+      technical: `${hosting} mantém registros técnicos de acesso às páginas. O formulário não envia seus dados a nenhum servidor: ele apenas monta a mensagem e abre o seu e-mail ou o WhatsApp, onde você decide enviá-la.`,
+      sharing: `${hosting}, o provedor de e-mail da Inplak (quando você envia o pedido por e-mail) e a plataforma WhatsApp (Meta), quando você envia por lá`,
       retentionExtra: '',
     },
   }[mode];

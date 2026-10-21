@@ -13,7 +13,7 @@ Site completo da **Inplak Comunicação Visual**: estático (HTML, CSS e JavaScr
 - **Folder virtual (`/folder/`):** as 12 páginas do folder com o efeito de virar a página **arrastando o canto com o mouse** ou deslizando o dedo. Tem capa dura, contador de páginas, miniaturas, tela cheia, teclado (setas), versão em texto (acessibilidade e Google) e link para a versão no FlipHTML5. A chamada aparece na home, na página Sobre, no menu (com um pontinho verde de "novo"), no topo e no rodapé.
 - **Formulário de orçamento:** validação, anexos (até 5 arquivos), consentimento LGPD e anti-spam. Veja como ele envia em [Formulário](#formulário).
 - **SEO:** título, descrição e imagem de compartilhamento em todas as páginas, dados estruturados (LocalBusiness, Service, FAQPage, BreadcrumbList, BlogPosting, ImageGallery, DigitalDocument), sitemap e favicon.
-- **Desempenho:** fotos em AVIF/WebP no tamanho certo; a home pesa cerca de 0,5 MB no celular (o site antigo pesava 6,2 MB).
+- **Desempenho:** fotos em AVIF/WebP no tamanho certo; a home pesa cerca de 0,5 MB no celular (o site antigo pesava 6,2 MB). Na segunda visita, CSS, JS e fotos vêm do próprio navegador, e as páginas já vistas abrem mesmo sem internet.
 - **Medição pronta:** GA4/GTM com aviso de cookies (LGPD). Só liga quando houver um ID.
 - **Endereços do site antigo** (WordPress) levam para as páginas novas.
 
@@ -50,11 +50,29 @@ O GitHub Pages não executa código no servidor, então o formulário funciona d
 
 | Modo | Como funciona | Quando |
 |---|---|---|
-| **WhatsApp** | O formulário monta a mensagem com os dados preenchidos e abre o WhatsApp da Inplak. Fotos e plantas vão na conversa. | Hoje, até ativarem o Apps Script |
+| **E-mail ou WhatsApp** | O cliente escolhe o botão. **E-mail:** abre o programa de e-mail dele com o pedido já escrito para `comercial@inplak.com.br`; ele anexa fotos e plantas e envia (se nada abrir, há um botão para copiar o pedido). **WhatsApp:** abre a conversa com a Inplak com a mensagem pronta; os arquivos vão por lá. | Hoje, até ativarem o Apps Script |
 | **Google Apps Script** (recomendado) | E-mail com anexos para a Inplak, cópia na Planilha Google, anexos no Drive e confirmação ao cliente. | Depois de seguir [`apps-script/LEIA-ME.md`](apps-script/LEIA-ME.md) e criar a variável `FORM_ENDPOINT` |
 | **PHP** | O formulário em [`src/static/api/`](src/static/api/) roda numa hospedagem com PHP (ex.: Hostinger). | Se preferirem manter a Hostinger (ver abaixo) |
 
 A troca de modo é automática: o build olha a variável `FORM_ENDPOINT` (e `FORM_PROVIDER`, para PHP).
+
+---
+
+## O que o GitHub Pages não faz e como cada função continua existindo
+
+| Função (na hospedagem com PHP) | No GitHub Pages |
+|---|---|
+| Formulário envia e-mail com anexos e guarda os pedidos | Botões **Enviar por e-mail** e **Enviar pelo WhatsApp** hoje; com o Apps Script ativo, volta a ser e-mail com anexos + planilha + Drive + confirmação ao cliente |
+| Redirecionamentos 301 dos endereços antigos (`.htaccess`) | Páginas de redirecionamento automáticas em cada endereço antigo, mais um script para os endereços com `?p=`, `?page_id=` etc. |
+| Página 404 própria | Igual (`404.html`) |
+| HTTPS obrigatório e HSTS | O próprio GitHub força HTTPS e envia HSTS |
+| Política de segurança de conteúdo (CSP) | Vai dentro de cada página (`<meta http-equiv="Content-Security-Policy">`) |
+| Proibir o site de ser exibido dentro de outro site (`X-Frame-Options`) | Script no início da página: se outro site tentar embutir, a página se esconde e tenta abrir no endereço verdadeiro |
+| Cache longo de CSS, JS e imagens | *Service worker* (`sw.js`): guarda CSS, JS e imagens no navegador, atualiza páginas em segundo plano e mostra as páginas já visitadas (inclusive o folder) **sem internet** |
+| Política de referência (`Referrer-Policy`) | Vai em `<meta name="referrer">` em cada página |
+| Bloqueio de pastas ocultas e do WordPress antigo (`410`) | Não se aplica: o GitHub só publica o que está em `dist/` |
+
+Só dois cabeçalhos não têm equivalente no GitHub Pages: `X-Content-Type-Options` e `Permissions-Policy`. O site não usa câmera, microfone, localização nem envia arquivos de tipo ambíguo, então a falta deles não abre nenhuma brecha. Se usarem o domínio próprio com Cloudflare na frente, dá para acrescentá-los lá.
 
 ---
 
@@ -143,12 +161,11 @@ scripts/           build, imagens, testes e servidor local
 
 ## Pendências que dependem da Inplak
 
-1. **Ativar o GitHub Pages** (*Settings → Pages → Source: GitHub Actions*), se ainda não estiver ativo.
-2. **Ativar o formulário completo** pelo Apps Script ([passo a passo](apps-script/LEIA-ME.md)).
-3. **Fotos:** vários arquivos originais se chamavam `ChatGPT-Image-...`. Confirme que todas mostram trabalhos reais da Inplak.
-4. **Depoimentos:** nenhum foi fornecido, por isso o site não tem depoimentos. Vale coletar 3 a 5 reais ou ligar as avaliações do Google.
-5. **Perfil da Empresa no Google:** não há perfil verificado no endereço da Rua Jorge Velho, 120. Criar esse perfil é o passo de SEO local mais importante.
-6. **Logos de clientes:** confirme a autorização para exibir marcas como Carrefour e Pão de Açúcar.
-7. **Política de privacidade:** revisão pelo jurídico/contador (principalmente a guarda de 24 meses).
-8. **Google Analytics:** criar a propriedade GA4 e colocar o ID.
-9. **Redes sociais:** o folder mostra Facebook; se quiserem, informe o link para incluir no site junto com Instagram e YouTube.
+1. **Ativar o formulário completo** pelo Apps Script ([passo a passo](apps-script/LEIA-ME.md)).
+2. **Fotos:** vários arquivos originais se chamavam `ChatGPT-Image-...`. Confirme que todas mostram trabalhos reais da Inplak.
+3. **Depoimentos:** nenhum foi fornecido, por isso o site não tem depoimentos. Vale coletar 3 a 5 reais ou ligar as avaliações do Google.
+4. **Perfil da Empresa no Google:** não há perfil verificado no endereço da Rua Jorge Velho, 120. Criar esse perfil é o passo de SEO local mais importante.
+5. **Logos de clientes:** confirme a autorização para exibir marcas como Carrefour e Pão de Açúcar.
+6. **Política de privacidade:** revisão pelo jurídico/contador (principalmente a guarda de 24 meses).
+7. **Google Analytics:** criar a propriedade GA4 e colocar o ID.
+8. **Redes sociais:** o folder mostra Facebook; se quiserem, informe o link para incluir no site junto com Instagram e YouTube.

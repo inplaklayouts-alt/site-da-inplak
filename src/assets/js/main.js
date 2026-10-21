@@ -4,6 +4,27 @@
 
   var doc = document;
   var root = doc.documentElement;
+
+  // Proteção contra "clickjacking": o site não pode ser exibido dentro de outro site.
+  // Faz o papel do cabeçalho X-Frame-Options, que o GitHub Pages não permite configurar.
+  if (window.top !== window.self) {
+    var framedBySelf = false;
+    try {
+      framedBySelf = window.top.location.origin === window.location.origin;
+    } catch (e) {
+      framedBySelf = false;
+    }
+    if (!framedBySelf) {
+      root.style.display = 'none';
+      try {
+        window.top.location.replace(window.location.href);
+      } catch (e) {
+        /* navegação bloqueada pelo site de fora: a página continua oculta */
+      }
+      return;
+    }
+  }
+
   root.classList.remove('no-js');
   root.classList.add('js');
 
@@ -805,6 +826,12 @@
         });
       }
 
+      // Lembra qual botão de envio foi usado (para navegadores sem "event.submitter").
+      form.addEventListener('click', function (ev) {
+        var b = ev.target.closest('button[type="submit"]');
+        if (b) form.__lastSubmitter = b;
+      });
+
       form.addEventListener('input', function () {
         if (!touched) {
           touched = true;
@@ -988,11 +1015,36 @@
         }
         var mode = form.getAttribute('data-form-mode') || 'php';
 
-        // Sem servidor configurado: monta a mensagem e abre o WhatsApp da Inplak.
+        // Sem servidor configurado: o pedido sai pronto pelo e-mail do cliente ou pelo WhatsApp da Inplak.
         if (mode === 'whatsapp') {
+          var clicked = e.submitter || form.__lastSubmitter;
+          var channel = clicked && clicked.value === 'email' ? 'email' : 'whatsapp';
+          var label = form.elements.servico ? form.elements.servico.value : '';
+          if (channel === 'email') {
+            var mail = emailLink(form);
+            track('generate_lead', { label: label, form_id: form.id, method: 'email' });
+            showStatus(
+              'Abrimos o seu e-mail com o pedido já escrito para ' + escapeHtml(config.email || '') + '. Anexe fotos, plantas ou medidas e clique em enviar. ' +
+                'Se nada abriu (comum em quem usa e-mail pelo navegador), <button type="button" class="link-btn" data-copy-request>copie o pedido</button> e cole numa mensagem para ' +
+                '<a href="mailto:' + escapeHtml(config.email || '') + '">' + escapeHtml(config.email || '') + '</a>.',
+              'success',
+              true,
+            );
+            var copyBtn = $('[data-copy-request]', status);
+            copyBtn.addEventListener('click', function () {
+              var text = requestText(form);
+              var done = function () {
+                copyBtn.textContent = 'pedido copiado!';
+              };
+              if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () {});
+              else window.prompt('Copie o pedido:', text);
+            });
+            window.location.href = mail;
+            return;
+          }
           var url = 'https://wa.me/' + (config.whatsapp || '') + '?text=' + encodeURIComponent(whatsappMessage(form));
           var win = window.open(url, '_blank', 'noopener');
-          track('generate_lead', { label: form.elements.servico ? form.elements.servico.value : '', form_id: form.id, method: 'whatsapp' });
+          track('generate_lead', { label: label, form_id: form.id, method: 'whatsapp' });
           showStatus(
             'Abrimos o WhatsApp com o seu pedido. É só tocar em enviar na conversa. Se a janela não abriu, <a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">clique aqui</a>.',
             'success',
@@ -1088,6 +1140,37 @@
     if (!el) return '';
     if (el.type === 'checkbox') return el.checked ? el.value : '';
     return String(el.value || '').trim();
+  }
+
+  // Texto do pedido para e-mail (sem a formatação *negrito* do WhatsApp).
+  function requestText(form) {
+    var labels = [
+      ['nome', 'Nome'],
+      ['empresa', 'Empresa'],
+      ['email', 'E-mail'],
+      ['telefone', 'Telefone/WhatsApp'],
+      ['cidade', 'Cidade/UF'],
+      ['servico', 'Serviço'],
+      ['unidades', 'Unidades'],
+      ['prazo', 'Prazo'],
+    ];
+    var lines = ['Olá! Vim pelo site da Inplak e gostaria de um orçamento.', ''];
+    labels.forEach(function (pair) {
+      var v = fieldValue(form, pair[0]);
+      if (v) lines.push(pair[1] + ': ' + v);
+    });
+    var msg = fieldValue(form, 'mensagem');
+    if (msg) lines.push('', 'Sobre o projeto:', msg);
+    lines.push('', 'Autorizo o uso destes dados para a resposta a este pedido (LGPD).');
+    return lines.join('\n');
+  }
+
+  function emailLink(form) {
+    var subject = 'Pedido de orçamento: ' + fieldValue(form, 'nome') + (fieldValue(form, 'servico') ? ' (' + fieldValue(form, 'servico') + ')' : '');
+    var body = requestText(form);
+    // Programas de e-mail limitam o tamanho do link: mensagens longas são resumidas (o texto completo pode ser copiado).
+    if (body.length > 1700) body = body.slice(0, 1700) + '…';
+    return 'mailto:' + (config.email || '') + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body.replace(/\n/g, '\r\n'));
   }
 
   function whatsappMessage(form) {
@@ -1193,9 +1276,23 @@
     else if (['p', 'page_id', 'cat', 'author', 'attachment_id'].some(function (k) { return q.has(k); })) location.replace(base + '/');
   }
 
+  /* ---------- Cache de longo prazo e acesso sem internet (service worker) ---------- */
+
+  function initServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+    if (location.protocol !== 'https:' && location.hostname !== 'localhost') return;
+    var base = config.base || '';
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register(base + '/sw.js', { scope: base + '/' }).catch(function () {
+        /* sem service worker o site funciona normalmente, só sem o cache extra */
+      });
+    });
+  }
+
   /* ---------- Inicialização ---------- */
 
   initLegacyRedirects();
+  initServiceWorker();
   initConsent();
   initHeader();
   initDropdowns();

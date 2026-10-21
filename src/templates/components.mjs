@@ -301,7 +301,8 @@ function formTag(id) {
     // Sem JavaScript o envio é feito direto ao Apps Script (sem anexos).
     return `<form ${common} action="${esc(site.form.endpoint)}" method="post" enctype="application/x-www-form-urlencoded">`;
   }
-  // Sem servidor configurado: sem JavaScript, abre o WhatsApp com a mensagem padrão.
+  // Sem servidor configurado: o pedido sai pelo e-mail do próprio cliente ou pelo WhatsApp.
+  // Sem JavaScript, o botão de e-mail usa o envio clássico "mailto" e o do WhatsApp abre a conversa.
   return `<form ${common} action="https://wa.me/${site.whatsapp.number}" method="get">
   <input type="hidden" name="text" value="${esc(site.whatsapp.defaultMessage)}" data-wa-default>`;
 }
@@ -310,7 +311,7 @@ function attachmentsField(id) {
   if (formMode() === 'whatsapp') {
     return `
     <div class="field field--full">
-      <p class="form__note">${icon('whatsapp', { size: 18 })} Ao enviar, abrimos o WhatsApp da Inplak com os seus dados já preenchidos. Fotos, plantas e medidas você manda direto na conversa.</p>
+      <p class="form__note">${icon('mail', { size: 18 })}<span>Escolha como enviar. <strong>Por e-mail:</strong> abrimos o seu e-mail com o pedido já escrito para ${esc(site.email)}, e você anexa fotos, plantas e medidas antes de enviar. <strong>Pelo WhatsApp:</strong> abrimos a conversa com a Inplak e você manda os arquivos por lá.</span></p>
     </div>`;
   }
   return `
@@ -400,15 +401,20 @@ ${formTag(id)}
   </div>
 
   <div class="form__footer">
-    <button class="btn ${whatsappMode ? 'btn--whatsapp' : 'btn--primary'} btn--lg" type="submit" data-submit>
-      ${whatsappMode ? icon('whatsapp', { size: 20 }) : ''}
-      <span class="btn__label">${whatsappMode ? 'Enviar pedido pelo WhatsApp' : 'Enviar pedido de orçamento'}</span>
-      <span class="btn__spinner" aria-hidden="true"></span>
-    </button>
     ${
       whatsappMode
-        ? `<p class="form__alt">Prefere e-mail? Escreva para <a href="mailto:${site.email}" data-track="email_click">${esc(site.email)}</a>.</p>`
-        : `<p class="form__alt">Prefere conversar agora? <a href="${waLink()}" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="formulario">Chame no WhatsApp</a>.</p>`
+        ? `<button class="btn btn--primary btn--lg" type="submit" name="canal" value="email" data-submit
+        formaction="mailto:${site.email}?subject=${encodeURIComponent('Pedido de orçamento pelo site')}" formmethod="post" formenctype="text/plain">
+      ${icon('mail', { size: 20 })}<span class="btn__label">Enviar por e-mail</span>
+    </button>
+    <button class="btn btn--whatsapp btn--lg" type="submit" name="canal" value="whatsapp">
+      ${icon('whatsapp', { size: 20 })}<span class="btn__label">Enviar pelo WhatsApp</span>
+    </button>`
+        : `<button class="btn btn--primary btn--lg" type="submit" data-submit>
+      <span class="btn__label">Enviar pedido de orçamento</span>
+      <span class="btn__spinner" aria-hidden="true"></span>
+    </button>
+    <p class="form__alt">Prefere conversar agora? <a href="${waLink()}" target="_blank" rel="noopener" data-track="whatsapp_click" data-track-label="formulario">Chame no WhatsApp</a>.</p>`
     }
   </div>
   <div class="form__status" role="status" aria-live="polite" data-form-status></div>

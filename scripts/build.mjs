@@ -77,6 +77,14 @@ writeFileSync(path.join(dist, 'assets/css/main.css'), cssMin);
 writeFileSync(path.join(dist, 'assets/js/main.js'), js);
 cpSync(path.join(root, 'src/assets/vendor'), path.join(dist, 'assets/vendor'), { recursive: true });
 
+// Service worker na raiz do site (cache de longo prazo + páginas sem internet).
+writeFileSync(
+  path.join(dist, 'sw.js'),
+  readFileSync(path.join(root, 'src/assets/sw.js'), 'utf8')
+    .replace("var VERSION = '__VERSION__';", `var VERSION = '${hash(cssVersion + jsVersion)}';`)
+    .replace("var BASE = '__BASE__';", `var BASE = '${base}';`),
+);
+
 // ---------- Páginas ----------
 
 const pages = [
