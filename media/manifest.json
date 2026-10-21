@@ -1,0 +1,900 @@
+{
+ "fachada-rede-market": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "fachada-boa-supermercados": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "fachada-supermercados-alvorada": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "fachada-super-big": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "fachada-canossa-supermercados": {
+  "dir": "fotos",
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ]
+ },
+ "fachada-abc-plus": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "fachada-agibank": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "fachada-ferreira-supermercados": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "fachada-isabela-presentes-cristal-academia": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "fachada-casa-da-mulher-itaquaquecetuba": {
+  "dir": "fotos",
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   480,
+   800,
+   1200,
+   1280
+  ]
+ },
+ "fachada-superbom-supermercados": {
+  "dir": "fotos",
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   480,
+   800,
+   1200,
+   1280
+  ]
+ },
+ "fachada-assai-atacadista": {
+  "dir": "fotos",
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   480,
+   800,
+   1200,
+   1280
+  ]
+ },
+ "fachada-bluefit": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "fachada-centro-de-formacao-itaquaquecetuba": {
+  "dir": "fotos",
+  "w": 1086,
+  "h": 1448,
+  "widths": [
+   480,
+   800,
+   1086
+  ]
+ },
+ "totem-assai-farma": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "totem-st-marche": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "totem-assai-atacadista-instalacao": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "totem-avistao-instalacao": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "totem-barcelos-atacadista": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "totem-duda-utilidades": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "totem-bluefit-vagas": {
+  "dir": "fotos",
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   480,
+   800,
+   960
+  ]
+ },
+ "totem-dia": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-acougue-e-frios": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-setores-supermercado": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-laticinios-frios-paes": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-hortifruti-ovos": {
+  "dir": "fotos",
+  "w": 1753,
+  "h": 897,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-ambientacao-supermercado": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "interna-frios-e-leites": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "interna-barcelos-corredores": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-barcelos-caixas": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-adega-forro-ripado": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-frente-de-caixa": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-area-de-bazar": {
+  "dir": "fotos",
+  "w": 1672,
+  "h": 941,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "interna-adega-letreiro-suspenso": {
+  "dir": "fotos",
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   480,
+   800,
+   1200,
+   1280
+  ]
+ },
+ "interna-acougue": {
+  "dir": "fotos",
+  "w": 2000,
+  "h": 1125,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "mobiliario-loja-de-calcados": {
+  "dir": "fotos",
+  "w": 1467,
+  "h": 1072,
+  "widths": [
+   480,
+   800,
+   1200,
+   1467
+  ]
+ },
+ "mobiliario-estantes-metalicas": {
+  "dir": "fotos",
+  "w": 1086,
+  "h": 1448,
+  "widths": [
+   480,
+   800,
+   1086
+  ]
+ },
+ "mobiliario-balcao-ripado": {
+  "dir": "fotos",
+  "w": 1086,
+  "h": 1448,
+  "widths": [
+   480,
+   800,
+   1086
+  ]
+ },
+ "mobiliario-ilha-expositora": {
+  "dir": "fotos",
+  "w": 1086,
+  "h": 1448,
+  "widths": [
+   480,
+   800,
+   1086
+  ]
+ },
+ "mobiliario-gondolas": {
+  "dir": "fotos",
+  "w": 1086,
+  "h": 1448,
+  "widths": [
+   480,
+   800,
+   1086
+  ]
+ },
+ "mobiliario-estantes-supermercado-mirassol": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "mobiliario-projeto-3d-supermercado-mirassol": {
+  "dir": "fotos",
+  "w": 669,
+  "h": 577,
+  "widths": [
+   480,
+   669
+  ]
+ },
+ "mobiliario-mesas-restaurante": {
+  "dir": "fotos",
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   480,
+   800,
+   960
+  ]
+ },
+ "mobiliario-estacoes-de-trabalho": {
+  "dir": "fotos",
+  "w": 776,
+  "h": 1285,
+  "widths": [
+   480,
+   776
+  ]
+ },
+ "mobiliario-balcao-de-atendimento": {
+  "dir": "fotos",
+  "w": 1600,
+  "h": 900,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "estrutura-metalica-cobertura": {
+  "dir": "fotos",
+  "w": 1080,
+  "h": 913,
+  "widths": [
+   480,
+   800,
+   1080
+  ]
+ },
+ "antes-oxxo": {
+  "dir": "fotos",
+  "w": 1453,
+  "h": 1083,
+  "widths": [
+   480,
+   800,
+   1200,
+   1453
+  ]
+ },
+ "depois-oxxo": {
+  "dir": "fotos",
+  "w": 1448,
+  "h": 1086,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ]
+ },
+ "antes-centro-de-formacao-itaquaquecetuba": {
+  "dir": "fotos",
+  "w": 941,
+  "h": 1672,
+  "widths": [
+   480,
+   800,
+   941
+  ]
+ },
+ "logo-inplak-branco": {
+  "dir": "marca",
+  "w": 1024,
+  "h": 439,
+  "widths": [
+   180,
+   360,
+   540
+  ],
+  "alpha": true
+ },
+ "camaleao": {
+  "dir": "marca",
+  "w": 993,
+  "h": 827,
+  "widths": [
+   160,
+   320,
+   640
+  ],
+  "alpha": true
+ },
+ "camaleao-icone": {
+  "dir": "marca",
+  "w": 100,
+  "h": 83,
+  "widths": [
+   100
+  ],
+  "alpha": true
+ },
+ "palavra-criacao": {
+  "dir": "marca",
+  "w": 405,
+  "h": 156,
+  "widths": [
+   200,
+   405
+  ],
+  "alpha": true
+ },
+ "palavra-fabricacao": {
+  "dir": "marca",
+  "w": 588,
+  "h": 162,
+  "widths": [
+   290,
+   588
+  ],
+  "alpha": true
+ },
+ "palavra-instalacao": {
+  "dir": "marca",
+  "w": 567,
+  "h": 159,
+  "widths": [
+   280,
+   567
+  ],
+  "alpha": true
+ },
+ "whatsapp-camaleao": {
+  "dir": "marca",
+  "w": 90,
+  "h": 90,
+  "widths": [
+   90
+  ],
+  "alpha": true
+ },
+ "cliente-carrefour": {
+  "dir": "clientes",
+  "w": 287,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-carrefour.webp"
+ },
+ "cliente-assai": {
+  "dir": "clientes",
+  "w": 198,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-assai.webp"
+ },
+ "cliente-pao-de-acucar": {
+  "dir": "clientes",
+  "w": 65,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-pao-de-acucar.webp"
+ },
+ "cliente-dia": {
+  "dir": "clientes",
+  "w": 119,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-dia.webp"
+ },
+ "cliente-pernambucanas": {
+  "dir": "clientes",
+  "w": 170,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-pernambucanas.webp"
+ },
+ "cliente-st-marche": {
+  "dir": "clientes",
+  "w": 189,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-st-marche.webp"
+ },
+ "cliente-sonda": {
+  "dir": "clientes",
+  "w": 99,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-sonda.webp"
+ },
+ "cliente-sao-roque": {
+  "dir": "clientes",
+  "w": 329,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-sao-roque.webp"
+ },
+ "cliente-savegnago": {
+  "dir": "clientes",
+  "w": 233,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-savegnago.webp"
+ },
+ "cliente-uniao": {
+  "dir": "clientes",
+  "w": 122,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-uniao.webp"
+ },
+ "cliente-superbom": {
+  "dir": "clientes",
+  "w": 212,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-superbom.webp"
+ },
+ "cliente-bobs": {
+  "dir": "clientes",
+  "w": 110,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-bobs.webp"
+ },
+ "cliente-bluefit": {
+  "dir": "clientes",
+  "w": 364,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-bluefit.webp"
+ },
+ "cliente-bem-barato": {
+  "dir": "clientes",
+  "w": 108,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-bem-barato.webp"
+ },
+ "cliente-rede-r-market": {
+  "dir": "clientes",
+  "w": 173,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-rede-r-market.webp"
+ },
+ "cliente-avistao": {
+  "dir": "clientes",
+  "w": 151,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-avistao.webp"
+ },
+ "cliente-alvorada": {
+  "dir": "clientes",
+  "w": 113,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-alvorada.webp"
+ },
+ "cliente-super-big": {
+  "dir": "clientes",
+  "w": 72,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-super-big.webp"
+ },
+ "cliente-dville": {
+  "dir": "clientes",
+  "w": 70,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-dville.webp"
+ },
+ "cliente-mini-preco": {
+  "dir": "clientes",
+  "w": 106,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-mini-preco.webp"
+ },
+ "cliente-negreiros": {
+  "dir": "clientes",
+  "w": 160,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-negreiros.webp"
+ },
+ "cliente-abc-plus": {
+  "dir": "clientes",
+  "w": 99,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-abc-plus.webp"
+ },
+ "cliente-boa-supermercados": {
+  "dir": "clientes",
+  "w": 161,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-boa-supermercados.webp"
+ },
+ "cliente-comercial-esperanca": {
+  "dir": "clientes",
+  "w": 157,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-comercial-esperanca.webp"
+ },
+ "cliente-davo": {
+  "dir": "clientes",
+  "w": 59,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-davo.webp"
+ },
+ "cliente-sublime": {
+  "dir": "clientes",
+  "w": 99,
+  "h": 60,
+  "widths": [],
+  "single": "cliente-sublime.webp"
+ },
+ "folder-pagina-01": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-02": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-03": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-04": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-05": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-06": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-07": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-08": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-09": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-10": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-11": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ },
+ "folder-pagina-12": {
+  "dir": "folder",
+  "w": 1569,
+  "h": 2200,
+  "widths": [
+   400,
+   700,
+   1100
+  ]
+ }
+}

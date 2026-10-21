@@ -1,0 +1,16 @@
+# Gerado pelo build (o GitHub Actions gera de novo a cada publicação)
+dist/
+
+# Dependências e caches
+node_modules/
+__pycache__/
+*.pyc
+
+# Configuração local de teste e dados do formulário PHP
+src/static/api/config.local.php
+src/static/api/dados/*
+!src/static/api/dados/.htaccess
+
+# Ferramentas locais
+.claude/
+*.log

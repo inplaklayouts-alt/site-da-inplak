@@ -1,0 +1,8 @@
+# Somente o contato.php pode ser acessado nesta pasta.
+<FilesMatch "^(config|config\.local)\.php$">
+Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+Header always set X-Robots-Tag "noindex, nofollow"
+</IfModule>
